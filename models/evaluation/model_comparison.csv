@@ -1,0 +1,4 @@
+model,accuracy,precision_macro,recall_macro,f1_macro
+Decision Tree,0.120000,0.129876,0.115385,0.114900
+KNN,0.185000,0.200591,0.181090,0.161418
+SVM,0.205000,0.111167,0.200321,0.132942

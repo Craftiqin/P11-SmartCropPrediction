@@ -1,0 +1,22 @@
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+
+# Finalized training data and profile tables are required for reproducible runs.
+data/*
+!data/synthetic/
+data/synthetic/*
+!data/synthetic/README.md
+!data/synthetic/crop_profiles.csv
+!data/synthetic/synthetic_crop_sensor_data.csv
+!data/synthetic/synthetic_crop_sensor_ranges.csv
+
+# Keep project model/evaluation artifacts; exclude temporary editor/cache output.
+models/.DS_Store
+models/evaluation/final_audit_report.md
+models/evaluation/final_audit_results.json
+

@@ -1,0 +1,180 @@
+{
+  "available_features": [
+    "temperature",
+    "humidity",
+    "soil_moisture",
+    "light",
+    "pressure"
+  ],
+  "baseline_selected_model": "KNN",
+  "baseline_selected_test_macro_f1": 0.1614178650660551,
+  "classes": 52,
+  "cross_validation": {
+    "folds": 3,
+    "random_state": 42,
+    "scope": "training set only",
+    "selection_metric": "macro F1",
+    "shuffle": true,
+    "type": "StratifiedKFold"
+  },
+  "cv_selected_tuned_model": "Decision Tree",
+  "cv_selected_tuned_test_macro_f1": 0.11853146853146854,
+  "data_limitations": {
+    "class_difficulty": "Fifty-two classes share only five broad environmental measurements. Many crops therefore occupy similar feature regions.",
+    "environmental_range_overlap": "Crop profiles overlap substantially across temperature, humidity, soil moisture, and light; pressure uses a shared crop-independent pool.",
+    "field_validity": "Synthetic held-out performance measures recovery of generator assumptions, not real-world agricultural accuracy or field validation.",
+    "more_samples": "More samples from the same synthetic distributions would reduce sampling noise but would not add missing discriminative field variables or prove validity."
+  },
+  "dataset": "synthetic_crop_sensor_data.csv",
+  "experiment_version": "step-7-tuning-ablation-v1",
+  "feature_sets": {
+    "All features": [
+      "temperature",
+      "humidity",
+      "soil_moisture",
+      "light",
+      "pressure"
+    ],
+    "Core three features": [
+      "temperature",
+      "humidity",
+      "soil_moisture"
+    ],
+    "Temperature and humidity only": [
+      "temperature",
+      "humidity"
+    ],
+    "Without pressure": [
+      "temperature",
+      "humidity",
+      "soil_moisture",
+      "light"
+    ]
+  },
+  "feature_units": {
+    "humidity": "percent relative humidity",
+    "light": "lux",
+    "pressure": "hPa",
+    "soil_moisture": "calibrated relative percent",
+    "temperature": "degrees Celsius"
+  },
+  "final_selected_model": "KNN",
+  "final_selected_status": "baseline",
+  "pressure_conclusion": "Pressure was generated independently of crop. Held-out ablation deltas must be treated as sampling variation, not agronomic evidence.",
+  "pressure_delta_macro_f1_all_minus_without": {
+    "Decision Tree": -0.00786019536019536,
+    "KNN": -0.06465582557211516,
+    "SVM": -0.027009657637485696
+  },
+  "records": 1000,
+  "samples_per_class": {
+    "apple": 20,
+    "banana": 20,
+    "barley": 20,
+    "black_gram": 20,
+    "black_pepper": 20,
+    "cabbage": 20,
+    "cardamom": 20,
+    "carrot": 20,
+    "castor": 20,
+    "cauliflower": 20,
+    "chickpea": 20,
+    "chilli": 20,
+    "coffee": 19,
+    "coriander": 19,
+    "cotton": 19,
+    "cowpea": 19,
+    "cumin": 19,
+    "eggplant": 19,
+    "field_pea": 19,
+    "finger_millet": 19,
+    "ginger": 19,
+    "grape": 19,
+    "green_gram": 19,
+    "groundnut": 19,
+    "guava": 19,
+    "jute": 19,
+    "lentil": 19,
+    "maize": 19,
+    "mango": 19,
+    "muskmelon": 19,
+    "mustard": 19,
+    "okra": 19,
+    "onion": 19,
+    "orange": 19,
+    "papaya": 19,
+    "pearl_millet": 19,
+    "pigeon_pea": 19,
+    "pineapple": 19,
+    "pomegranate": 19,
+    "potato": 19,
+    "rice": 19,
+    "sesame": 19,
+    "sorghum": 19,
+    "soybean": 19,
+    "sugarcane": 19,
+    "sunflower": 19,
+    "tea": 19,
+    "tobacco": 19,
+    "tomato": 19,
+    "turmeric": 19,
+    "watermelon": 19,
+    "wheat": 19
+  },
+  "selection_rule": "Tuned model chosen by training-only CV macro F1; held-out score used once as replacement gate against preserved baseline. Ablation test scores are descriptive and do not select the deployed feature set.",
+  "split": {
+    "random_state": 42,
+    "stratified": true,
+    "test_feature_fingerprint": "9f076e7a692b628e3c90af606a932e394ab7894f9bc4a1252d8afe44ab6641ff",
+    "test_samples": 200,
+    "training_feature_fingerprint": "c4ee885e0c3ac54848830e36da33a97d4005df3fa80be3dd151179b61d944cd2",
+    "training_samples": 800
+  },
+  "trained_at_utc": "2026-09-12T04:53:40.695543+00:00",
+  "tuned_models": {
+    "Decision Tree": {
+      "best_cv_macro_f1": 0.16849861321015167,
+      "best_parameters": {
+        "max_depth": 16,
+        "min_samples_leaf": 1
+      },
+      "held_out_metrics": {
+        "accuracy": 0.13,
+        "f1_macro": 0.11853146853146854,
+        "f1_weighted": 0.12327272727272728,
+        "precision_macro": 0.12039835164835164,
+        "recall_macro": 0.125
+      }
+    },
+    "KNN": {
+      "best_cv_macro_f1": 0.15400868593344977,
+      "best_parameters": {
+        "n_neighbors": 9,
+        "p": 1,
+        "weights": "uniform"
+      },
+      "held_out_metrics": {
+        "accuracy": 0.15,
+        "f1_macro": 0.13564515549809666,
+        "f1_weighted": 0.14107096171802053,
+        "precision_macro": 0.14174063116370808,
+        "recall_macro": 0.14423076923076922
+      }
+    },
+    "SVM": {
+      "best_cv_macro_f1": 0.15620730897668955,
+      "best_parameters": {
+        "C": 0.1,
+        "gamma": "scale",
+        "kernel": "linear"
+      },
+      "held_out_metrics": {
+        "accuracy": 0.22,
+        "f1_macro": 0.16051483709854752,
+        "f1_weighted": 0.16467352582058467,
+        "precision_macro": 0.1470630864861634,
+        "recall_macro": 0.21474358974358973
+      }
+    }
+  }
+}

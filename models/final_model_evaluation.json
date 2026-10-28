@@ -1,0 +1,31 @@
+{
+  "configuration": "tuned",
+  "cross_validation_metrics": {
+    "accuracy": 0.1999755944167535,
+    "f1_macro": 0.1798773941185566,
+    "f1_macro_std": 0.024236299277133246,
+    "f1_weighted": 0.18045227964190366,
+    "precision_macro": 0.2005369923356349,
+    "recall_macro": 0.19978632478632474
+  },
+  "feature_order": [
+    "temperature",
+    "humidity",
+    "soil_moisture",
+    "light"
+  ],
+  "field_validated": false,
+  "held_out_test_metrics": {
+    "accuracy": 0.235,
+    "f1_macro": 0.20030098107021183,
+    "f1_weighted": 0.20242413142413146,
+    "precision_macro": 0.19694264069264067,
+    "recall_macro": 0.23237179487179488
+  },
+  "held_out_test_usage": "Evaluated once after model and feature-set selection was fixed.",
+  "pressure_used_for_prediction": false,
+  "selected_feature_set": "Without pressure",
+  "selected_model": "KNN",
+  "selection_basis": "training-only cross-validation macro F1",
+  "synthetic_data": true
+}
